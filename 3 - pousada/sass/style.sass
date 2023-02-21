@@ -1,0 +1,375 @@
+@use 'mixins'
+@use 'variables'
+
+*
+    margin: 0
+    padding: 0
+    font-family: 'Soucer Sans Pro', sans-serif
+    box-sizing: border-box
+
+.header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    height: 60px
+    padding: 2rem 2rem
+    width: 100%
+
+    &-logo
+        color: variables.$primary-color
+        text-decoration: none
+        font-size: 25px
+
+        span
+            color: variables.$secondary-color
+    
+    &-navbar
+
+        ul
+            display: flex
+            align-items: center
+            gap: 1rem
+
+            @include mixins.responsive
+                display: none
+
+            li
+                list-style: none
+
+                a
+                    color: variables.$primary-color
+                    text-decoration: none
+                    font-weight: 400
+
+    &-menu-mobile
+        @include mixins.flex-center
+        display: none
+
+        @include mixins.responsive
+            display: flex
+
+        &-btn
+            @include mixins.flex-center
+            width: 2rem
+            height: 1.5rem
+            flex-direction: column
+            justify-content: space-between
+            cursor: pointer
+
+            &-line
+                width: 100%
+                padding: 2px
+                border-radius: 5px
+                background-color: variables.$primary-color
+        
+        &-menubar
+            position: fixed
+            z-index: 1
+            right: -40%
+            bottom: 0
+            width: 40%
+            height: 100vh
+            background-color: variables.$bg-color
+            @include mixins.flex-center
+            flex-direction: column
+            justify-content: space-between
+            padding: 1.5rem
+            transition: .5s
+
+            @include mixins.responsive2
+                width: 100%
+                justify-content: space-around
+                
+
+            @include mixins.mobile
+                width: 60%
+                right: -60%
+
+            .active
+                right: 0%
+
+            &-btn
+                @include mixins.flex-center
+                width: 2rem
+                height: 1.5rem
+                flex-direction: column
+                justify-content: space-between
+                align-self: flex-end
+                cursor: pointer
+
+                @include mixins.responsive2
+                    position: fixed
+                    top: 1rem
+                    right: 1rem
+
+                &-line
+                    width: 100%
+                    padding: 2px
+                    border-radius: 5px
+                    background-color: variables.$primary-color
+
+                #line-1
+                    transform: rotate(45deg) translate(7px , 7px)
+
+                #line-2
+                    transform: rotate(-45deg) translate(7px , -7px)
+
+            &-navbar
+                
+                ul
+                    @include mixins.flex-center
+                    flex-direction: column
+                    gap: 1.5rem
+                    list-style: none
+                    text-decoration: none
+
+                    @include mixins.responsive2
+                        flex-direction: row
+
+                    li
+                        margin: 0 1rem
+                        text-transform: uppercase
+                        font-size: 1rem
+
+                        .active
+                            color: variables.$secondary-color
+
+                        a
+                            color: variables.$primary-color
+                            text-decoration: none
+                            font-weight: 400
+
+                            &:hover
+                                color: variables.$secondary-color
+
+            &-social-media
+                width: 100%
+                padding: 1rem
+                display: flex
+                justify-content: center
+
+                a
+                    color: variables.$secondary-color
+                    text-decoration: none
+                    font-weight: bold
+                    padding: .5rem
+                    border: 2px solid variables.$secondary-color
+                    border-radius: 10px
+                    text-align: center
+
+
+        &-menubar.active
+            right: 0%
+
+.session1
+    display: flex
+    align-items: center
+    justify-content: center
+    background-image: url("/img/img-fundo.jpg")
+    background-repeat: no-repeat
+    background-position: center
+    background-size: cover
+    height: calc(100% - 60px)
+    width: 100%
+
+    @include mixins.responsive2
+        height: 600px
+
+    &-conteudo
+        display: flex
+        flex-direction: column
+        align-items: center
+        gap: 1.5rem
+        background: rgba(0, 128, 100, 0.623)
+        padding: 2rem
+        border: 1px solid white
+        color: white
+        border-radius: 5px
+
+        @include mixins.mobile
+            width: 90%
+
+        h1
+            font-size: 35px
+
+        p
+            font-size: 20px
+        
+.session2
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding: 1rem
+    gap: 2rem
+
+    &-conteudo
+        display: flex
+        flex-direction: column
+        align-items: center
+        padding: 2rem 0
+        gap: 1rem
+        color: variables.$primary-color
+        font-size: 1.2rem
+        text-align: center
+
+        h2
+            font-size: 30px
+            font-weight: 100
+
+    &-quartos 
+        display: grid
+        grid-template-columns: repeat(auto-fill,minmax(300px, 1fr))
+        width: 100%
+        max-width: 1024px
+        gap: 1.5rem
+
+        &-quarto
+            display: flex
+            flex-direction: column
+            align-items: center
+
+            img
+                width: 100%
+
+            a
+                width: 100%
+                padding: 1.5rem
+                text-align: center
+                text-decoration: none
+                color: variables.$primary-color
+                border-bottom: 2px solid rgb(43, 173, 123)
+                flex-grow: 1
+
+.session3
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding: 1rem 0
+    gap: 2rem
+
+    &-conteudo
+        display: flex
+        flex-direction: column
+        align-items: center
+        padding: 2rem
+        gap: 1rem
+        color: variables.$primary-color
+        font-size: 1.2rem
+        text-align: center
+
+        h2
+            font-size: 30px
+            font-weight: 100
+
+    iframe
+        width: 100%
+        height: 350px
+
+.session4
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding: 1rem 1rem 4rem
+    gap: 2rem
+
+    &-conteudo
+        display: flex
+        flex-direction: column
+        align-items: center
+        padding: 2rem
+        gap: 1rem
+        color: variables.$primary-color
+        font-size: 1.2rem
+        text-align: center
+
+        h2
+            font-size: 30px
+            font-weight: 100
+
+    &-infos
+        display: grid
+        grid-template-columns: repeat(auto-fill,minmax(335px, 1fr))
+        width: 100%
+        max-width: 1024px
+        gap: 3rem
+
+        @include mixins.mobile
+            padding: 1rem
+
+        &-info
+            display: flex
+            align-items: center
+            justify-content: space-between
+            gap: 1rem
+            color: variables.$primary-color
+
+            @include mixins.mobile
+                flex-direction: column-reverse
+
+            img
+                width: 150px
+                height: 150px
+
+                @include mixins.mobile
+                    width: 100%
+                    height: auto                
+
+            &-conteudo
+                display: flex
+                flex-direction: column
+                gap: 1rem
+                text-align: justify
+
+                @include mixins.mobile
+                    font-size: 1.2rem
+                    width: 100%
+
+.footer
+    display: flex
+    justify-content: center
+    width: 100%
+    height: auto
+    background: rgb(73, 161, 128)
+    padding: 1rem
+
+    &-rodape
+        display: flex
+        flex-direction: column
+        align-items: center
+        width: 100%
+        max-width: 1024px
+        color: white
+
+        &-conteudo
+            display: flex
+            align-items: center
+            justify-content: center
+            width: 100%
+
+            &-contatos
+                display: flex
+                flex-wrap: wrap
+                align-items: center
+                justify-content: center
+                padding: 1rem
+                gap: 1rem
+
+                a
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    gap: .5rem
+                    color: white
+                    text-decoration: none
+                    width: 320px
+
+                    img
+                        width: 40px
+                        height: 40px
+                        margin-right: 10px
+
+        &-copy
+            width: 80%
+            text-align: center
+            padding: 1rem
+            border-top: 2px solid rgb(62, 134, 108)
