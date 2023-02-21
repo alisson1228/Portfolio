@@ -1,0 +1,277 @@
+@use 'variables'
+@use 'mixins'
+
+*
+    font-family: "Montserrat", serif
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+
+body
+    background: variables.$bg-color
+    color: variables.$text-color
+
+    a
+        color: variables.$text-color
+        text-decoration: none
+        transition: .4s
+
+    ul
+        list-style: none
+
+.header
+    display: flex
+    justify-content: space-between
+    @include  mixins.container
+
+    @include mixins.mobile
+        padding: 1.1rem
+
+    &-brand
+        color: variables.$primary-color
+        font-size: 3rem
+
+    &-navbar
+
+        ul
+            height: 100%
+            @include mixins.flex-center
+
+            @include mixins.responsive2
+                display: none
+
+            @include mixins.mobile
+                display: none
+
+            li
+                margin: 0 1rem
+                text-transform: uppercase
+                font-size: .8rem
+
+                .active
+                    color: variables.$secondary-color
+
+                a
+                    &:hover
+                        color: variables.$secondary-color
+
+    &-social-media
+
+        ul
+            @include mixins.flex-center
+            height: 100%
+
+            @include mixins.responsive
+                display: none
+
+            @include mixins.mobile
+                display: none
+
+            li
+                margin: 0 1rem
+                font-size: 1.5rem
+
+                a
+                    &:hover
+                        color: variables.$primary-color
+
+    &-menu-mobile
+        @include mixins.flex-center
+        display: none
+
+        @include mixins.responsive2
+            display: flex
+
+        &-btn
+            @include mixins.flex-center
+            width: 2rem
+            height: 1.5rem
+            flex-direction: column
+            justify-content: space-between
+            cursor: pointer
+
+            &-line
+                width: 100%
+                padding: 2px
+                border-radius: 5px
+                background-color: variables.$primary-color
+        
+        &-menubar
+            position: fixed
+            z-index: 1
+            right: -40%
+            bottom: 0
+            width: 40%
+            height: 100vh
+            background-color: variables.$bg-color
+            @include mixins.flex-center
+            flex-direction: column
+            justify-content: space-between
+            padding: 1.5rem
+            transition: .5s
+
+            @include mixins.responsive3
+                width: 100%
+                right: -100%
+                justify-content: space-around
+
+            @include mixins.mobile
+                width: 60%
+                right: -60%
+
+            .active
+                right: 0%
+
+            &-btn
+                @include mixins.flex-center
+                width: 2rem
+                height: 1.5rem
+                flex-direction: column
+                justify-content: space-between
+                align-self: flex-end
+                margin: 1rem
+                cursor: pointer
+
+                @include mixins.responsive3
+                    position: relative
+                    top: -1.5rem
+                    right: -0.5rem
+
+                &-line
+                    width: 100%
+                    padding: 2px
+                    border-radius: 5px
+                    background-color: variables.$primary-color
+
+                #line-1
+                    transform: rotate(45deg) translate(7px , 7px)
+
+                #line-2
+                    transform: rotate(-45deg) translate(7px , -7px)
+
+            &-navbar
+                
+                ul
+                    @include mixins.flex-center
+                    flex-direction: column
+                    gap: 1.5rem
+
+                    @include mixins.responsive3
+                        flex-flow: row wrap
+                        margin-top: 50px
+
+                    li
+                        margin: 0 1rem
+                        text-transform: uppercase
+                        font-size: 1rem
+
+                        .active
+                            color: variables.$secondary-color
+
+                        a
+                            &:hover
+                                color: variables.$secondary-color
+
+            &-social-media
+                width: 100%
+                padding: 1rem
+
+                @include mixins.responsive3
+                    padding: .5rem
+
+                ul
+                    @include mixins.flex-center
+                    justify-content: space-around
+
+                    li
+                        font-size: 1.5rem
+
+        &-menubar.active
+            right: 0%
+
+
+.gallery
+    @include mixins.container
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr))
+    gap: 2rem
+
+    &-card
+        height: 400px
+        @include mixins.flex-center
+        flex-direction: column
+        color: variables.$primary-color
+
+        &-title
+            font-size: 2rem
+            font-weight: 300
+            margin-bottom: 1rem
+
+        &-btn
+            padding: .6rem 2rem
+            border: 2px solid variables.$primary-color
+            color: variables.$primary-color
+            font-weight: 400
+            text-transform: uppercase
+            letter-spacing: 1px
+
+            &:hover
+                background-color: variables.$primary-color
+                color: variables.$bg-color
+    
+    #card-1
+        @include mixins.bg-img('animais.jpg')
+    
+    #card-2
+        @include mixins.bg-img('arquitetura.jpg')
+
+    #card-3
+        @include mixins.bg-img('cidade.jpg')
+
+    #card-4
+        @include mixins.bg-img('decoracao.jpg')
+
+    #card-5
+        @include mixins.bg-img('esportes.jpg')
+
+    #card-6
+        @include mixins.bg-img('natureza.jpg')
+
+    #card-7
+        @include mixins.bg-img('paisagem.jpg')
+
+    #card-8
+        @include mixins.bg-img('pessoas.jpg')
+
+    #card-9
+        @include mixins.bg-img('refeicoes.jpg')
+
+.footer
+    @include mixins.flex-center
+    padding-bottom: 2rem
+
+    span
+        font-weight: bold
+        color: variables.$secondary-color 
+    
+    &-social-media
+
+        ul
+            @include mixins.flex-center
+            height: 100%
+            display: none
+
+            @include mixins.responsive
+                display: flex
+
+            @include mixins.mobile
+                display: none
+
+            li
+                margin: 0 1rem
+                font-size: 1.5rem
+
+                a
+                    &:hover
+                        color: variables.$primary-color
+        
