@@ -1,0 +1,294 @@
+@use 'variables'
+@use 'mixins'
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-family: "Montserrat", sans-serif
+
+body
+    background: variables.$bg-color
+
+.header
+    @include mixins.flex-center
+    padding: 1rem
+    
+    h1
+        @include mixins.flex-center
+        font-size: 45px
+        color: variables.$primary-color
+
+        span
+            font-size: 80px
+            color: variables.$secundary-color
+            line-height: 55px
+
+.main
+    @include mixins.flex-center
+    margin-bottom: 20px 
+
+    &-pagevideo
+        display: grid
+        padding: 2rem
+        background: white
+        border-radius: 10px
+        grid-template: "video lista" 50vh "info lista" auto / 70% 30%
+        width: 80vw
+
+        &.teatro
+            grid-template: "video video" auto "info lista" auto / 70% 30%
+
+            .main-pagevideo-videoslist
+                margin-top: 2rem
+        
+        &-player
+            @include mixins.flex-center
+            height: 50vh
+            border-radius: 10px
+            position: relative
+            background-color: #000
+            overflow: hidden
+            grid-area: video
+
+            &.teatro
+                width: calc(100% + 4rem)
+                max-width: none
+                border-radius: 0px
+                height: 65vh
+                margin: 0 -2rem
+
+            &.fullscreen
+                background: red
+
+                #teatro
+                    display: none
+
+            &-video
+                width: 100%
+                height: 100%
+
+            &-controls
+                @include mixins.flex-center
+                justify-content: space-between
+                flex-wrap: wrap
+                position: absolute
+                bottom: -60px
+                padding: 0 1rem .5rem
+                width: 100%
+                transition: .5s
+                opacity: 0
+
+                &.active
+                    bottom: 0
+                    opacity: 1
+
+                &-duration
+                    width: 100%
+                    
+                    &-duracao
+                        width: 100%
+                        height: 5px
+
+                &-funcao
+                    @include mixins.flex-center
+                    gap: 1rem
+
+                    &-play
+                        @include mixins.btn
+
+                        &.play
+                            .fa-play
+                                display: block
+
+                            .fa-pause
+                                display: none
+
+                            .fa-rotate-right
+                                display: none
+
+                        &.pause
+                            .fa-play
+                                display: none
+
+                            .fa-pause
+                                display: block
+
+                            .fa-rotate-right
+                                display: none
+
+                        &.repet
+                            .fa-play
+                                display: none
+
+                            .fa-pause
+                                display: none
+
+                            .fa-rotate-right
+                                display: block
+
+                    &-volum
+                        @include mixins.flex-center
+                        width: 2rem
+                        justify-content: flex-start
+                        overflow: hidden
+                        transition: .5s
+                        gap: .4rem
+
+                        &:hover
+                            width: 10.5rem
+
+                        input[type="range"]
+                            height: 5px
+
+                        &-btn
+                            @include mixins.btn
+                            justify-content: flex-start
+
+                            &.high
+
+                            .fa-volume-high
+                                display: block
+
+                            .fa-volume-low
+                                display: none
+
+                            .fa-volume-off
+                                display: none
+
+                            .fa-volume-xmark
+                                display: none
+
+                            &.low
+
+                                .fa-volume-high
+                                    display: none
+
+                                .fa-volume-low
+                                    display: block
+
+                                .fa-volume-off
+                                    display: none
+
+                                .fa-volume-xmark
+                                    display: none
+
+                            &.off
+
+                                .fa-volume-high
+                                    display: none
+
+                                .fa-volume-low
+                                    display: none
+
+                                .fa-volume-off
+                                    display: block
+
+                                .fa-volume-xmark
+                                    display: none
+
+                            &.xmark
+
+                                .fa-volume-high
+                                    display: none
+
+                                .fa-volume-low
+                                    display: none
+
+                                .fa-volume-off
+                                    display: none
+
+                                .fa-volume-xmark
+                                    display: block
+
+                    &-time
+                        color: variables.$secundary-color
+        
+                &-propriedade
+                    @include mixins.flex-center
+
+                    &-btn
+
+                        &-teatro
+                            @include mixins.btn
+
+                            &.normal
+                                .fa-square
+                                    font-style: italic
+
+                            &.teatro
+                                .fa-square
+                                    font-style: normal
+
+                        &-fullscrem
+                            @include mixins.btn
+
+                            &.normal
+
+                                .fa-expand
+                                    display: block
+
+                                .fa-compress
+                                    display: none
+
+                            &.fullscrem
+
+                                .fa-expand
+                                    display: none
+
+                                .fa-compress
+                                    display: block
+
+        &-infovideo
+            display: flex
+            flex-direction: column
+            padding: 2rem
+            gap: 1rem
+            grid-area: info
+
+            &-descricao
+                display: flex
+                flex-direction: column
+                gap: .5rem
+
+        &-videoslist
+            grid-area: lista
+            text-align: center
+            display: flex
+            flex-direction: column
+            gap: 1rem
+            margin-left: 1.5rem
+
+            &-cardvideos
+                background: #bbbbbb
+                width: 100%
+                height: 100px
+                padding: 1rem
+                display: flex
+                align-items: center
+                gap: 1rem
+                border-radius: 10px
+                
+                &-imagem
+                    background: #949494
+                    width: 70px
+                    height: 70px
+                    border-radius: 10px
+
+
+                &-infos
+                    display: flex
+                    flex-direction: column
+                    gap: 1rem
+
+                    &-titulo
+                        background: #e9e9e9
+                        width: 100px
+                        height: 20px
+                        border-radius: 5px
+
+                    &-duracao
+                        background: #e9e9e9
+                        width: 60px
+                        height: 20px
+                        border-radius: 5px

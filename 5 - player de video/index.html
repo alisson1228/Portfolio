@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--style-->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://kit.fontawesome.com/d36eccf0f9.js" crossorigin="anonymous"></script>
+    <title>PLAYER+</title>
+</head>
+<body>
+    <header class="header">
+        <h1>Player<span>+</span></h1>
+    </header>
+    <main class="main">
+        <div class="main-pagevideo" id="conteiner">
+            <div class="main-pagevideo-player" id="player" onmousemove="aparecerControls()">
+                <video src="" class="main-pagevideo-player-video" id="video"></video>
+                <div class="main-pagevideo-player-carregar"></div>
+                <div class="main-pagevideo-player-controls" id="controls">
+                    <div class="main-pagevideo-player-controls-duration">
+                        <input type="range" name="" id="duracao" class="main-pagevideo-player-controls-duration-duracao" oninput="duracao()" value="0" min="0" max="10000">
+                    </div>
+                    <div class="main-pagevideo-player-controls-funcao">
+                        <button class="main-pagevideo-player-controls-funcao-play play" id="play" onclick="playVid()"><i class="fa fa-play"></i><i class="fa fa-pause"></i><i class="fa-solid fa-rotate-right"></i></button>
+                        <div class="main-pagevideo-player-controls-funcao-volum">
+                            <button class="main-pagevideo-player-controls-funcao-volum-btn high" id="volum" onclick="mutar()"><i class="fa fa-volume-high"></i><i class="fa fa-volume-low"></i><i class="fa fa-volume-off"></i><i class="fa fa-volume-xmark"></i></button>
+                            <input type="range" name="" id="volume" class="main-pagevideo-player-controls-funcao-volum-range" oninput="volumes()" value="100">
+                        </div>
+                        <div class="main-pagevideo-player-controls-funcao-time">
+                            <p>
+                                <span class="main-pagevideo-player-controls-funcao-time-correnttime" id="corrente">0:00</span>
+                                <span class="main-pagevideo-player-controls-funcao-time-separador">/</span>
+                                <span class="main-pagevideo-player-controls-funcao-time-duracao" id="totaltime">0:00</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="main-pagevideo-player-controls-propriedade">
+                        <button class="main-pagevideo-player-controls-propriedade-btn-teatro normal" id="teatro" onclick="teatro()"><i class="fa-regular fa-square"></i></button>
+                        <button class="main-pagevideo-player-controls-propriedade-btn-fullscrem normal" id="fullscrem" onclick="fullscreen()"><i class="fa-solid fa-expand"></i><i class="fa-solid fa-compress"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="main-pagevideo-videoslist">
+                <h4>Continue assistindo:</h4>
+                <div class="main-pagevideo-videoslist-cardvideos">
+                    <div class="main-pagevideo-videoslist-cardvideos-imagem"></div>
+                    <div class="main-pagevideo-videoslist-cardvideos-infos">
+                        <div class="main-pagevideo-videoslist-cardvideos-infos-titulo"></div>
+                        <div class="main-pagevideo-videoslist-cardvideos-infos-duracao"></div>
+                    </div>
+                </div>
+                <div class="main-pagevideo-videoslist-cardvideos">
+                    <div class="main-pagevideo-videoslist-cardvideos-imagem"></div>
+                    <div class="main-pagevideo-videoslist-cardvideos-infos">
+                        <div class="main-pagevideo-videoslist-cardvideos-infos-titulo"></div>
+                        <div class="main-pagevideo-videoslist-cardvideos-infos-duracao"></div>
+                    </div>
+                </div>
+                <div class="main-pagevideo-videoslist-cardvideos">
+                    <div class="main-pagevideo-videoslist-cardvideos-imagem"></div>
+                    <div class="main-pagevideo-videoslist-cardvideos-infos">
+                        <div class="main-pagevideo-videoslist-cardvideos-infos-titulo"></div>
+                        <div class="main-pagevideo-videoslist-cardvideos-infos-duracao"></div>
+                    </div>
+                </div>
+                <div class="main-pagevideo-videoslist-cardvideos">
+                    <div class="main-pagevideo-videoslist-cardvideos-imagem"></div>
+                    <div class="main-pagevideo-videoslist-cardvideos-infos">
+                        <div class="main-pagevideo-videoslist-cardvideos-infos-titulo"></div>
+                        <div class="main-pagevideo-videoslist-cardvideos-infos-duracao"></div>
+                    </div>
+                </div>
+                <div class="main-pagevideo-videoslist-cardvideos">
+                    <div class="main-pagevideo-videoslist-cardvideos-imagem"></div>
+                    <div class="main-pagevideo-videoslist-cardvideos-infos">
+                        <div class="main-pagevideo-videoslist-cardvideos-infos-titulo"></div>
+                        <div class="main-pagevideo-videoslist-cardvideos-infos-duracao"></div>
+                    </div>
+                </div>
+                <div class="main-pagevideo-videoslist-cardvideos">
+                    <div class="main-pagevideo-videoslist-cardvideos-imagem"></div>
+                    <div class="main-pagevideo-videoslist-cardvideos-infos">
+                        <div class="main-pagevideo-videoslist-cardvideos-infos-titulo"></div>
+                        <div class="main-pagevideo-videoslist-cardvideos-infos-duracao"></div>
+                    </div>
+                </div>
+                <div class="main-pagevideo-videoslist-cardvideos">
+                    <div class="main-pagevideo-videoslist-cardvideos-imagem"></div>
+                    <div class="main-pagevideo-videoslist-cardvideos-infos">
+                        <div class="main-pagevideo-videoslist-cardvideos-infos-titulo"></div>
+                        <div class="main-pagevideo-videoslist-cardvideos-infos-duracao"></div>
+                    </div>
+                </div>
+                <div class="main-pagevideo-videoslist-cardvideos">
+                    <div class="main-pagevideo-videoslist-cardvideos-imagem"></div>
+                    <div class="main-pagevideo-videoslist-cardvideos-infos">
+                        <div class="main-pagevideo-videoslist-cardvideos-infos-titulo"></div>
+                        <div class="main-pagevideo-videoslist-cardvideos-infos-duracao"></div>
+                    </div>
+                </div>
+                <div class="main-pagevideo-videoslist-cardvideos">
+                    <div class="main-pagevideo-videoslist-cardvideos-imagem"></div>
+                    <div class="main-pagevideo-videoslist-cardvideos-infos">
+                        <div class="main-pagevideo-videoslist-cardvideos-infos-titulo"></div>
+                        <div class="main-pagevideo-videoslist-cardvideos-infos-duracao"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-pagevideo-infovideo">
+                <h3 id="titulo">Titulo do Video</h3>
+                <div class="main-pagevideo-infovideo-descricao">
+                    <h4>Descrição:</h4>
+                    <p id="descricao">Descrição do videoooooooo!!!!!!</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        const vid = document.getElementById("video")
+        const play = document.getElementById("play")
+        const volumec = document.getElementById("volume")
+        const btnvolum = document.getElementById("volum")
+        const cduracao = document.getElementById("duracao")
+
+        const tempocorrent = document.getElementById("corrente")
+        const totaltempo = document.getElementById("totaltime")
+
+        const teatrobtn = document.getElementById("teatro")
+        const fullscreenbtn = document.getElementById("fullscrem")
+
+        const page = document.getElementById("conteiner")
+        const player = document.getElementById("player")
+        const controls = document.getElementById("controls")
+
+        const titulo = document.getElementById("titulo")
+        const descricao = document.getElementById("descricao")
+
+        let video = [
+            {
+                titulo: "Lembre de mim - Viva a vida é uma festa", 
+                descricao: "Musica cantada por miguel para sua vó para que ela possa se lembrar de seu pai",
+                local: "/Lembre De Mim☆Miguel e Inês☆ Viva a Vida é Uma Festa.mp4"
+            },
+            {
+                titulo: "Adão Negro filme 2022", 
+                descricao: "Adão negro é libertado de sua prisão então ele luta com um grupo de herois",
+                local: "/Adão Negro 2022 1080p HDR WEB-DL DUAL 5.1.mkv"
+            }
+        ]
+
+        let indexvideo = 0
+
+        longinvideo(indexvideo)
+
+        function longinvideo(e) {
+            
+            let localvideo = video[e].local
+            let titulovideo = video[e].titulo
+            let descricaovideo = video[e].descricao
+
+            vid.src = localvideo
+            titulo.innerText = titulovideo
+            descricao.innerText = descricaovideo
+
+            setInterval(update, 100)
+        }
+
+
+        let estadoplay = 0
+
+        function playVid() {
+            if(vid.paused) {
+                vid.play()
+
+                estadoplay = 0
+            } else {
+                vid.pause()
+
+                estadoplay = 1
+            }
+
+            iconPlay()
+        }
+
+        function avanceRetorne(lado) {
+            if(lado == "ArrowLeft") {
+                vid.currentTime = vid.currentTime - 5
+            } else {
+                vid.currentTime = vid.currentTime + 5
+            }
+        }
+
+        function iconPlay() {
+            if(vid.paused) {
+                play.classList.remove("pause")
+                play.classList.remove("repet")
+                play.classList.remove("play")
+                play.classList.add("play")
+            } 
+            if(!vid.paused) {
+                play.classList.remove("pause")
+                play.classList.remove("repet")
+                play.classList.remove("play")
+                play.classList.add("pause")
+            }
+        }
+
+        function iconVolum() {
+            if(vid.muted){
+                btnvolum.classList.remove("high")
+                btnvolum.classList.remove("low")
+                btnvolum.classList.remove("off")
+                btnvolum.classList.add("xmark")
+            } else {
+                if(volumec.value > 50) {
+                    btnvolum.classList.remove("high")
+                    btnvolum.classList.remove("low")
+                    btnvolum.classList.remove("off")
+                    btnvolum.classList.remove("xmark")
+                    btnvolum.classList.add("high")
+                } else if (volumec.value < 50 && volumec.value != 0) {
+                    btnvolum.classList.remove("high")
+                    btnvolum.classList.remove("low")
+                    btnvolum.classList.remove("off")
+                    btnvolum.classList.remove("xmark")
+                    btnvolum.classList.add("low")
+                } else if (volumec.value == 0) {
+                    btnvolum.classList.remove("high")
+                    btnvolum.classList.remove("low")
+                    btnvolum.classList.remove("off")
+                    btnvolum.classList.remove("xmark")
+                    btnvolum.classList.add("off")
+                }
+            }
+        }
+
+        function iconTeatro() {
+            if(player.classList.length == 2) {
+                teatrobtn.classList.remove("normal")
+                teatrobtn.classList.add("teatro")
+            } else {
+                teatrobtn.classList.remove("teatro")
+                teatrobtn.classList.add("normal")
+            }
+            
+            if(player.classList.length == 2) {
+                page.classList.add("teatro")
+            } else {
+                page.classList.remove("teatro")
+            }
+        }
+
+        function iconFullscreen() {
+            if(document.fullscreenElement == null) {
+                fullscreenbtn.classList.remove("normal")
+                fullscreenbtn.classList.add("fullscrem")
+
+                teatrobtn.style.display = "none"
+            } else {
+                fullscreenbtn.classList.remove("fullscrem")
+                fullscreenbtn.classList.add("normal")
+
+                teatrobtn.style.display = "flex"
+            }
+        }
+
+        function mutar() {
+            if(vid.muted){
+                vid.muted = false
+            } else {
+                vid.muted = true
+            }
+
+            iconVolum()
+        }
+
+        function volumes() {
+            vid.volume = volumec.value/100
+
+            iconVolum()
+        }
+
+        function duracao() {
+            vid.currentTime = vid.duration/10000*cduracao.value
+        }
+
+        function alterVolumKey(lado) {
+            if(lado == "ArrowUp" && volumec.value != 100) {
+                volumec.value = parseInt(volumec.value) + 10
+                console.log("u")
+            } else if(lado == "ArrowDown" && volumec.value != 0) {
+                volumec.value = volumec.value - 10
+                console.log("d")
+            }
+
+            volumes()
+        }
+
+        function teatro() {
+            if(player.classList.length == 2) {
+                player.classList.remove("teatro")
+            } else {
+                player.classList.add("teatro")
+            }
+
+            iconTeatro()
+        }
+
+        function fullscreen() {
+            if(document.fullscreenElement == null) {
+                openfullScreen()
+            } else {
+                closefullscreen()
+            }
+
+            iconFullscreen()
+        }
+
+        function openfullScreen() {
+            if (player.requestFullscreen) {
+                player.requestFullscreen();
+            } else if (player.webkitRequestFullscreen) { /* Safari */
+                player.webkitRequestFullscreen();
+            } else if (player.msRequestFullscreen) { /* IE11 */
+                player.msRequestFullscreen();
+            }
+        }
+
+        function closefullscreen() {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) { /* Safari */
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { /* IE11 */
+                document.msExitFullscreen();
+            }
+        }
+
+        function aparecerControls() {
+            
+            var tempoDeEspera = 2 * 1000;
+            var timeout = setTimeout(inativo, tempoDeEspera);
+
+            function actividade(e) {
+                clearInterval(timeout);
+                timeout = setTimeout(inativo, tempoDeEspera);
+                // só para o exemplo
+                //console.log('Houve actividade de ' + (e.type == 'keyup' ? 'teclado' : 'ponteiro'));
+
+                if(controls.classList[1] == null) {
+                    controls.classList.add("active")
+                }
+            }
+
+            function inativo() {
+                //console.log('Inativo hà mais de 30 minutos...');
+                controls.classList.remove("active")
+            }
+
+            ['keyup', 'touchmove' in player ? 'touchmove' : 'mousemove', "onwheel" in document.createElement("div") ? "wheel" : document.onmousewheel !== undefined ? "mousewheel" : "DOMMouseScroll"].forEach(function(ev) {
+                player.addEventListener(ev, actividade);
+            })
+        }
+
+        document.addEventListener ('keydown', (event) => {
+            if(event.key == " ") {
+                event.preventDefault()
+                
+                playVid()
+            }
+
+            if(event.key == "ArrowLeft") {
+                avanceRetorne(event.key)
+            }
+
+            if(event.key == "ArrowRight") {
+                avanceRetorne(event.key)
+            }
+
+            if(event.key == "ArrowUp") {
+                event.preventDefault()
+
+                alterVolumKey(event.key)
+            }
+
+            if(event.key == "ArrowDown") {
+                event.preventDefault()
+
+                alterVolumKey(event.key)
+            }
+
+        });
+
+        function update() {
+            seekPosition = vid.currentTime * (10000 / vid.duration)
+            cduracao.value = seekPosition
+
+            let currentMinutes = Math.floor(vid.currentTime / 60)
+            let currentSeconds = Math.floor(vid.currentTime - currentMinutes * 60)
+            let durationMinutes = Math.floor(vid.duration / 60)
+            let durationSeconds = Math.floor(vid.duration - durationMinutes * 60)
+
+            let currentHoras = Math.floor(currentMinutes / 60)
+            let duracaoHoras = Math.floor(durationMinutes / 60)
+
+            if(currentHoras > 0) {currentMinutes = currentMinutes - currentHoras * 60}
+            if(duracaoHoras > 0) {durationMinutes = durationMinutes - duracaoHoras * 60}
+
+            if(currentSeconds < 10) {currentSeconds = "0" + currentSeconds }
+            if(durationSeconds < 10) { durationSeconds = "0" + durationSeconds }
+            if(currentMinutes < 10) {currentMinutes = "0" + currentMinutes }
+            if(durationMinutes < 10) { durationMinutes = "0" + durationMinutes }
+
+            if(duracaoHoras != 0) {
+                tempocorrent.textContent = currentHoras + ":" + currentMinutes + ":" + currentSeconds
+                totaltempo.textContent = duracaoHoras + ":" + durationMinutes + ":" + durationSeconds
+            } else {
+                tempocorrent.textContent = currentMinutes + ":" + currentSeconds
+                totaltempo.textContent = durationMinutes + ":" + durationSeconds
+            }
+            
+            if(cduracao.value == 10000 && play.classList[1] != "repet") {
+                play.classList.remove("pause")
+                play.classList.remove("repet")
+                play.classList.remove("play")
+                play.classList.add("repet")
+            } else if(cduracao.value != 10000 && play.classList[1] == "repet") {
+                iconPlay()
+
+                if(estadoplay == 0) {
+                    playVid()
+                }
+            }
+        }
+    </script>
+</body>
+</html>
